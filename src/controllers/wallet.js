@@ -11,8 +11,8 @@ function token(min, max) {
 var transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-        user: 'tucorreo@gmail.com',
-        pass: 'tucontraseña',
+        user: 'yoeldategeek@gmail.com',
+        pass: 'Yalimar22..',
     }
 });
 
@@ -96,7 +96,7 @@ module.exports = {
                         }
                     });
                     newHistory.save();
-                    res.render('/wallet/confirm_pay', newHistory);
+                    res.render('wallet/confirm-pay', {newHistory});
                     
                 } else {
                     res.status(400).json('Saldo Insuficiente');
@@ -120,10 +120,10 @@ module.exports = {
                 // Verificamos si el valor del pago es mayor que 0
                 if (Number(history.payment_value) > 0) {
                     // Verificamos si el balance de la cuenta puede pagar el valor
-                    if(Number(wallet.balance) > Number(payment_value)){
+                    if(Number(wallet.balance) > Number(history.payment_value)){
                         const oldBalance = wallet.balance;
                         const newBalance = Number(oldBalance) - Number(history.payment_value);
-                        await Wallet.findByIdAndUpdate(id, {balance: newBalance});
+                        await Wallet.findByIdAndUpdate(wallet._id, {balance: newBalance});
                         req.flash('success_msg', 'Payment Success');
                         res.redirect('/wallets/');
                     }
@@ -131,6 +131,7 @@ module.exports = {
             } 
         } else {
             req.flash('error_msg', 'Token Incorrect')
+            res.redirect('/wallets/');
         }
     },
     consult: async(req, res, next) => {
