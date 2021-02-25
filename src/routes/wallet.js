@@ -4,6 +4,7 @@ const Wallet = require('../models/Wallet');
 const passport = require('passport');
 const {index, charge, pay, consult} = require('../controllers/wallet');
 const { isAuthenticated } = require('../helpers/auth');
+const mail = require('../controllers/mail');
 
 router.get('/wallets', isAuthenticated, index);
 
@@ -21,7 +22,7 @@ router.get('/wallet/consult/:id', isAuthenticated, async (req, res) =>{
     });
     
 });
-
+router.get('/email/', mail.sendEmail);
 router.post('/wallet/consult/:id', isAuthenticated, consult);
 router.post('/api/wallets/pay', pay);
 router.put('/wallets/charge/:id', isAuthenticated, charge);

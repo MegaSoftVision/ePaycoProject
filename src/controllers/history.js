@@ -3,21 +3,24 @@ const History = require('../models/History');
 module.exports = {
     index: async (req, res) => {
         await History.find({}).sort({date: 'desc'})
-          .then(movements => {
+          .then(elements => {
             const context = {
-                movements: movements.map(movement => {
+                elements: elements.map(element => {
                     return {
-                        date: movement.date,
-                        concept: movement.concept,
-                        wallet: movement.wallet,
-                        user: movement.user,
-                        _id: movement._id
+                        date: element.date,
+                        concept: element.concept,
+                        wallet: element.wallet,
+                        user: element.user,
+                        _id: element._id
                     }
                     
                 })
             }
             console.log(context);
-            res.render('history/all-movements', {movements: context.movements }) 
+            res.render('history/all-movements', {elements: context.elements }) 
         })
+    },
+    confirm_payment: async(req, res) =>{
+
     }
 };
