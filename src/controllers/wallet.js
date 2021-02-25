@@ -11,8 +11,8 @@ function token(min, max) {
 var transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-        user: 'yoeldategeek@gmail.com',
-        pass: 'Yalimar22..',
+        user: 'tucorreo@gmail.com',
+        pass: 'tucontraseña',
     }
 });
 
