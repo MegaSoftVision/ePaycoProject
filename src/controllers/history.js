@@ -8,7 +8,7 @@ module.exports = {
                 movements: movements.map(movement => {
                     return {
                         date: movement.date,
-                        type: movement.type,
+                        concept: movement.concept,
                         wallet: movement.wallet,
                         user: movement.user,
                         _id: movement._id
