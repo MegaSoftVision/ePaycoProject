@@ -1,0 +1,17 @@
+.bg-gray {
+    background-color: #f2f3f4;
+}
+.pr-pl-12 {
+    padding-left: 17.5rem;
+    padding-right: 17.5rem;
+}
+body {
+    background-color: #f7f7f7;
+}
+.login-icon i{
+    font-size:5rem;
+    color:white;
+}
+.size-footer{
+    font-size:0.8rem!important;
+}

@@ -3,11 +3,12 @@
     <p class="lead"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas unde dolores voluptatum doloribus aliquid expedita dolor? Impedit ipsum eius molestias doloribus pariatur inventore, dolore animi magnam accusamus facere vero neque.</p>
     <hr class="my-4">
     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium repudiandae inventore fugiat voluptates? In sit tenetur aut nobis error labore nesciunt, recusandae fugiat delectus officia voluptatibus sint nam repellat vero.</p>
+    {{#each wallets}}
     <form action="/api/wallets/pay" method="POST">
         <input type="hidden" name="payment_value" value="20">
-        <input type="hidden" name="id" value="6037cff358fe0c1ee64d4a2e">
+        <input type="hidden" name="id" value="{{_id}}">
         <input type="hidden" name="concept" value="Pago de Google">
         <button type="submit" class="btn btn-primary btn">Pagar</button>
     </form>
-   
+    {{/each}}
 </div>

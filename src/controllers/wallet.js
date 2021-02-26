@@ -11,8 +11,8 @@ function token(min, max) {
 var transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-        user: 'yoeldategeek@gmail.com',
-        pass: 'Yalimar22..',
+        user: 'tu correo',
+        pass: 'tu contraseña',
     }
 });
 
@@ -28,7 +28,8 @@ module.exports = {
                         balance: wallet.balance,
                         status: wallet.status,
                         token: wallet.token,
-                        _id: wallet._id
+                        _id: wallet._id,
+                        date: wallet.date
                     }
                     
                 })
@@ -82,7 +83,7 @@ module.exports = {
                         from: 'yoeldategeek@gmail.com',
                         to: user.email,
                         subject: 'Nueva Orden por Confirmar',
-                        text: JSON.stringify(newHistory),
+                        text: `El token es: ${newHistory.token}`
                     };
 
                     // Enviamos el email

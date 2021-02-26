@@ -19,14 +19,14 @@ router.get('/wallets/charge/:id', isAuthenticated, async (req, res) =>{
 router.get('/wallet/consult/:id', isAuthenticated, async (req, res) =>{
     await Wallet.findById(req.params.id)
     .then(wallet => {
-        res.render('/wallet/consult', {wallet})
+        res.render('wallet/consult', {wallet})
     });
     
 });
 
 router.get('/wallet/confirm-pay', isAuthenticated, async (req, res) =>{
    
-        res.render('/wallet/confirm-pay')
+        res.render('wallet/confirm-pay')
   
     
 });

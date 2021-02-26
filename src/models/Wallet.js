@@ -6,6 +6,7 @@ const { Schema } = mongoose;
 const WalletSchema = new Schema({
     user: {type: String, required: true},
     balance:{type: Number, default: 0},
+    date: {type: Date, default: Date.now}
 });
 
 module.exports = mongoose.model('Wallet', WalletSchema);
